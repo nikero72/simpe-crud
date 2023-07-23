@@ -6,11 +6,7 @@
     $items = mysqli_query($connect, "SELECT * FROM `items`");
     $items = mysqli_fetch_all($items);
 ?>
-
-<aside>
-    <div class="aside"
-</aside>
-
+<br>
 <main>
     <table>
         <tr>
@@ -18,9 +14,9 @@
             <th>Название</th>
             <th>Описание</th>
             <th>Цена</th>
-            <th>Просмотр</th>
-            <th>Изменить</th>
-            <th>Удалить</th>
+            <th></th>
+            <th></th>
+            <th></th>
         </tr>
         <?php 
         foreach ($items as $value) {
@@ -30,9 +26,9 @@
                     <td><?= $value[1] ?></td>
                     <td><?= $value[2] ?></td>
                     <td><?= $value[3] ?></td>
-                    <td><a href="view.php?id=<?= $value[0] ?>">Посмотреть</a></td>
-                    <td><a href="update.php?id=<?= $value[0] ?>">Изменить</a></td>
-                    <td><a href="vendor/delete.php?id=<?= $value[0] ?>">Удалить</a></td>
+                    <td class="icons"><a href="view.php?id=<?= $value[0] ?>">&#x1f441;</a></td>
+                    <td class="icons"><a href="update.php?id=<?= $value[0] ?>">✎</a></td>
+                    <td class="icons"><a href="vendor/delete.php?id=<?= $value[0] ?>">&#128465;</a></td>
                 </tr>
             <?php
         }
