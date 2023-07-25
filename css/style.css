@@ -7,18 +7,93 @@ body, html {
 }
 
 main {
-    max-width: 1000px;
+    display: block;
     height: auto;
     margin: 0 auto;
-    text-align: center
+    padding: 3%;
+}
+
+header {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    padding: 1% 3% 1% 3%;
+}
+
+#view-comments {
+    display: block;
+    height: auto;
+    margin: 2% 0 0 0;
+    padding: 3%;
+}
+
+#header-title-div, #header-subtitle-div {
+    float: left;
+    padding: 8px 18px;
+    border-radius: 18px;
+    text-align: center;
+}
+
+#header-title-div {
+    background-color: #000;
+}
+
+#header-title-link {
+    color: #FFF;
+}
+
+#header-title-link, #header-subtitle-span {
+    font-size: 20px;
 }
 
 table {
-    margin: 0 auto;
     border-spacing: 0px;
-    width: 100%;
+    width: 74%;
     height: auto;
     border: 1px solid #eee;
+    float: left;
+    margin-right: 5%;
+}
+
+#view-item {
+    width: 74%;
+    height: auto;
+    float: left;
+    margin-right: 5%;
+}
+
+form {
+    width: 15%;
+    float: left;
+}
+
+input, textarea {
+    width: 100%;
+    font: inherit;
+}
+
+input {
+    height: 27px;
+}
+
+textarea {
+    height: 54px;
+}
+
+button {
+    margin-left: 35%;
+    padding: 5px 10px;
+    background: #eee;
+    border: 1px solid #000;
+    border-radius: 3px;
+    font: inherit;
+}
+
+.form-header {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    font-style: normal;
 }
 
 th {

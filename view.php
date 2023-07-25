@@ -1,5 +1,7 @@
 <?php 
     $site_title = "CRUD - Просмотр товара";
+
+    require_once 'config/divide.php';
     require_once 'blocks/header.php';
     require_once 'config/connect.php';
 
@@ -12,31 +14,36 @@
     $comments = mysqli_fetch_all($comments);
 ?>
 
-<a href="/">Главная</a><br>
+<main>
+    <div id="view-item">
+        <h3><?= $item['title'] ?></h3>
+        <p><?= $item['description'] ?></p>
+        <p><b>Цена: </b><?= $item['price'] ?></p>
+    </div>
 
-<h3><?= $item['title'] ?></h3>
-<p><?= $item['description'] ?></p>
-<p><b>Цена: </b><?= $item['price'] ?></p>
-<hr>
 
+    <p class="form-header">Добавить комментарий</p>
 
-<h4>Добавить комментарий</h4>
-<form action="vendor/comment.php" method="post">
-    <input type="hidden" name="item_id" value="<?= $item_id ?>">
-    <textarea name="comment" placeholder="Комментарий"></textarea><br><br>
-    <button type="submit">Отправить</button>
-</form>
-<hr>
+    <form action="vendor/comment.php" method="post">
+        <input type="hidden" name="item_id" value="<?= $item_id ?>">
+        <textarea name="comment" placeholder="Комментарий"></textarea><br><br>
+        <button type="submit">Отправить</button>
+    </form>
+</main>
 
-<ul>
-    <?php
-        foreach ($comments as $value) {
-    ?>
-        <li><?= $value[2] ?></li>
-    <?php
-        } 
-    ?>
-</ul>
+<div id="view-comments"> 
+    <hr>
+
+    <ul>
+        <?php
+            foreach ($comments as $value) {
+        ?>
+            <li><?= $value[2] ?></li>
+        <?php
+            } 
+        ?>
+    </ul>
+</div>
 
 
 <?php 

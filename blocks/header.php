@@ -8,3 +8,8 @@
     <link rel="stylesheet" href="..\css\style.css">
   </head>
   <body>
+
+<header>
+  <div id="header-title-div"><span><a href="/" id="header-title-link"><?= $site_titles[0]?></a></span></div>
+  <div id="header-subtitle-div"><span id="header-subtitle-span"><?= $site_titles[1]?></span></div>
+</header>
