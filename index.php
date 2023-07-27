@@ -5,11 +5,26 @@
     require_once 'blocks/header.php';
     require_once 'config/connect.php';
 
-    $items = mysqli_query($connect, "SELECT * FROM `items`");
+    if (array_key_exists('search', $_GET) && !empty($_GET['search'])) {
+        $search = $_GET['search'];
+        global $items;
+
+        $items = mysqli_query($connect, "SELECT * FROM `items` WHERE id LIKE '%$search%' OR title LIKE '%$search%' OR description LIKE '%$search%' GROUP BY id ORDER BY id ASC");
+    } else {
+        global $items;
+
+        $items = mysqli_query($connect, "SELECT * FROM `items`");
+    }
+
     $items = mysqli_fetch_all($items);
 ?>
 
-
+<div class="search"> 
+    <form action="vendor/search.php" method="post" id="search-form">
+        <input type="text" name="search" placeholder="Поиск по ID/Названию/Описанию" id="search-input">
+        <button type="submit" id="search-button" title="Поиск">&#128269;</button>
+    </form>
+</div>
 
 <main>
     <table>
@@ -43,7 +58,7 @@
     <p class="form-header">Добавление нового товара</p>
 
     <form action="vendor/create.php" method="post">
-        <input type="text" name="title" placeholder="Название" id="create-title-input-field"><br><br>
+        <input type="text" name="title" placeholder="Название"><br><br>
         <textarea name="description" placeholder="Описание"></textarea><br><br>
         <input type="number" name="price" placeholder="Цена"><br><br>
         <button type="submit">Добавить</button>
