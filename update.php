@@ -7,7 +7,7 @@
 
     $item_id = $_GET['id'];
 
-    $item = mysqli_query($connect, "SELECT * FROM `items` WHERE $item_id");
+    $item = mysqli_query($connect, "SELECT * FROM `items` WHERE `items`.`id` = '$item_id'");
     $item = mysqli_fetch_assoc($item);
 ?>
 
