@@ -2,7 +2,6 @@ const commentForm = document.getElementById('comment-form');
 commentForm.addEventListener('submit', addCommentFormValidate);
 
 function addCommentFormValidate(event) {
-    alert('submit event');
     let comment = document.getElementById('add-comment');
 
     if (comment.value.length < 1) {
