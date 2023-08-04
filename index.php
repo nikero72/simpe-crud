@@ -57,13 +57,18 @@
 
     <p class="form-header">Добавление нового товара</p>
 
-    <form action="vendor/create.php" method="post">
-        <input type="text" name="title" placeholder="Название"><br><br>
-        <textarea name="description" placeholder="Описание"></textarea><br><br>
-        <input type="number" name="price" placeholder="Цена"><br><br>
+    <form action="vendor/create.php" method="post" id="add-item-form">
+        <input id="title-add-item-form" type="text" name="title" placeholder="Название">
+        <div class="error" id="add-form-title-error"></div><br>
+        <textarea id="description-add-item-form" name="description" placeholder="Описание"></textarea>
+        <div class="error" id="add-form-description-error"></div><br>
+        <input id="price-add-item-form" type="number" name="price" placeholder="Цена">
+        <div class="error" id="add-form-price-error"></div><br>
         <button type="submit">Добавить</button>
     </form>
 </main>
+
+<script src="js\item-form-validate.js"></script>
 
 
 <?php 

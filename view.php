@@ -24,9 +24,10 @@
 
     <p class="form-header">Добавить комментарий</p>
 
-    <form action="vendor/comment.php" method="post">
+    <form id="comment-form" action="vendor/comment.php" method="post">
         <input type="hidden" name="item_id" value="<?= $item_id ?>">
-        <textarea name="comment" placeholder="Комментарий"></textarea><br><br>
+        <textarea id="add-comment" name="comment" placeholder="Комментарий"></textarea>
+        <div class="error" id="add-comment-error"></div><br>
         <button type="submit">Отправить</button>
     </form>
 </main>
@@ -45,6 +46,7 @@
     </ul>
 </div>
 
+<script src="js\comment-form-validate.js"></script>
 
 <?php 
     require_once 'blocks/footer.php';

@@ -12,14 +12,19 @@
 ?>
 
 <main>
-    <form action="vendor/update.php" method="post">
+    <form action="vendor/update.php" method="post" id="add-item-form">
         <input type="hidden" name="id" value="<?= $item_id ?>">
-        <input type="text" name="title" placeholder="Название" value="<?= $item['title'] ?>"><br><br>
-        <textarea name="description" placeholder="Описание"><?= $item['description'] ?></textarea><br><br>
-        <input type="number" name="price" placeholder="Цена" value="<?= $item['price'] ?>"><br><br>
-        <button type="submit">Изменить</button>
+        <input id="title-add-item-form" type="text" name="title" placeholder="Название" value="<?= $item['title'] ?>">
+        <div class="error" id="add-form-title-error"></div><br>
+        <textarea id="description-add-item-form" name="description" placeholder="Описание"><?= $item['description'] ?></textarea>
+        <div class="error" id="add-form-description-error"></div><br>
+        <input id="price-add-item-form" type="number" name="price" placeholder="Цена" value="<?= $item['price'] ?>">
+        <div class="error" id="add-form-price-error"></div><br>
+        <button type="submit">Добавить</button>
     </form>
 </main>
+
+<script src="js\item-form-validate.js"></script>
 
 <?php 
     require_once 'blocks/footer.php';
